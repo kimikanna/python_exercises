@@ -1,15 +1,28 @@
-class MeansOfTransport():
-    def __init__(self, brand: str, color: str) -> None:
-        self.brand = brand
-        self.color = color
+class MeansOfTransport:
+    """Class for means of transport"""
+    def __init__(self, *, brand: str, color: str) -> None:
+        self._brand = brand
+        self._color = color
 
-    def show_brand(self) -> None:
-        print(self.brand)
+    @property
+    def brand(self):
+        return self._brand
 
-    def show_color(self) -> None:
-        print(self.color)
+    @brand.setter
+    def brand(self, brand):
+        self._brand = brand
+
+    @property
+    def color(self):
+        return self._color
+
+    @color.setter
+    def color(self, color):
+        self._color = color
 
 
 car_1 = MeansOfTransport(brand="Toyota", color="Black")
-car_1.show_brand()
-car_1.show_color()
+print(car_1.__dict__)
+car_1.brand = "Ford"
+car_1.color = "White"
+print(car_1.__dict__)
